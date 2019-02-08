@@ -9,6 +9,13 @@ import glob
 import math
 import numpy as np
 
+def polar2cart(r, theta, phi):
+    return [
+         r * math.sin(theta) * math.cos(phi),
+         r * math.sin(theta) * math.sin(phi),
+         r * math.cos(theta)
+    ]
+
 """Constants"""
 """Line-of-Sight Resolution (Meters)"""
 RES_LOS = 7.5
@@ -37,18 +44,21 @@ for filename in glob.glob('*.txt'):
             
             """Extracting the Zenith and the Azimuth Angles (Converted to Radians) accoring to LIDAR Documentation"""
             sdata = data[1].split()
-            zenith = np.deg2rad(float(sdata[8]))  
-            azimuth = np.deg2rad(float(sdata[9])) 
+            zenith = math.radians(float(sdata[8]))  
+            azimuth = math.radians(float(sdata[9])) 
 
             """Computing the base X,Y,Z co-ordinates. All others will be integral multiples of these"""
             """
             base_x = RES_LOS*math.cos(zenith)
             base_y = RES_LOS*math.cos(azimuth)
             base_z = RES_LOS*math.sin(zenith)
-            """
+            
             base_x = RES_LOS*np.cos(azimuth)*np.sin(zenith)
             base_y = RES_LOS*np.sin(azimuth)*np.sin(zenith)
-            base_z = RES_LOS*np.cos(zenith)
+            base_z = RES_LOS*np.cos(zenith)"""
+
+            base_x, base_y, base_z = polar2cart(RES_LOS, zenith, azimuth)
+
             """Analog and photon intensity data start on the 8th line"""
             buffer = 7
 
