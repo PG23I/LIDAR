@@ -1,3 +1,7 @@
+"""
+NEEDS TOTAL REWORK DUE TO NEW DATA FORMAT
+"""
+
 """Created by Prannav Gupta: 2nd September 2018"""
 """Ver 3.0: 7th September 2018"""
 """Reads the raw ASCII data and exports the X,Y,Z co-ordinates,intensity and the photon count to writefile.txt"""
