@@ -1,5 +1,6 @@
 """
 NEEDS TOTAL REWORK DUE TO NEW DATA FORMAT
+Refer Manual
 """
 
 """Created by Prannav Gupta: 2nd September 2018"""
