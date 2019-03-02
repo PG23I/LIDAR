@@ -13,10 +13,10 @@ def photon_corrected(ocr):
 
 #Attempts to glue analog and photon counting signals
 def gluing(analog,photon):
-    if(analog>(20*pow(10,6) and photon<(0.5*pow(10,6)):
+    if analog>(20*pow(10,6) and photon<(0.5*pow(10,6):
         return analog
-    elif(photon>(20*pow(10,6) and analog<(0.5*pow(10,6)):
+    elif photon>(20*pow(10,6) and analog<(0.5*pow(10,6):
         return photon
     else:
-        return "TODO"
+        return "TODO" #Need to find the regression coefficient to transfer analog to photon if in the intermediate range
 
